@@ -1,0 +1,42 @@
+<div class="my-5">
+  <!-- Navegación superior (Migas de pan) -->
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" class="text-decoration-none text-dark">Inicio</a></li>
+      <li class="breadcrumb-item"><a routerLink="/catalogo" class="text-decoration-none text-dark">Noticias</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ noticia.categoria }}</li>
+    </ol>
+  </nav>
+
+  <!-- Contenido de la Noticia -->
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <span class="badge bg-danger mb-2">{{ noticia.categoria }}</span>
+      <h1 class="fw-bold mb-3" style="font-family: serif;">{{ noticia.titulo }}</h1>
+      
+      <div class="d-flex justify-content-between text-muted small mb-4 border-bottom pb-3">
+        <span>Por <strong>{{ noticia.autor }}</strong></span>
+        <span>{{ noticia.fecha }}</span>
+      </div>
+      
+      <img [src]="noticia.imagen" [alt]="noticia.titulo" class="img-fluid rounded mb-4 w-100" style="max-height: 450px; object-fit: cover;">
+      
+      <p class="lead fw-bold">{{ noticia.parrafo1 }}</p>
+      <p>{{ noticia.parrafo2 }}</p>
+      
+      <!-- Botones de Interacción -->
+      <div class="mt-5 d-flex gap-3 pt-4 border-top">
+        <button
+          type="button"
+          class="btn px-4 fw-bold"
+          [class.btn-danger]="!esFavorita()"
+          [class.btn-outline-danger]="esFavorita()"
+          (click)="toggleFavorito()"
+        >
+          {{ esFavorita() ? 'Guardada en Favoritos' : 'Guardar en Favoritos' }}
+        </button>
+        <a routerLink="/contacto" class="btn btn-outline-dark px-4">Contactar al editor</a>
+      </div>
+    </div>
+  </div>
+</div>

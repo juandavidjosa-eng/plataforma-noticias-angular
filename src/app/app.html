@@ -1,0 +1,39 @@
+<!-- HEADER GLOBAL -->
+<header class="border-bottom py-3 mb-4">
+  <div class="container text-center mb-3">
+    <h1 class="display-4 fw-bold" style="font-family: serif;">NOTICIAS</h1>
+    <p class="text-muted small">EL DIARIO INDEPENDIENTE DE INFORMACIÓN GLOBAL</p>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-4 fw-bold text-uppercase" style="font-size: 0.9rem;">
+          <li class="nav-item"><a class="nav-link text-dark" routerLink="/">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" routerLink="/catalogo">Noticias</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-dark position-relative" routerLink="/favoritos">
+              Favoritos
+              @if (favoritosCount() > 0) {
+                <span class="badge rounded-pill bg-danger ms-2">{{ favoritosCount() }}</span>
+              }
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link text-dark" routerLink="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- AQUÍ SE CARGAN LAS PÁGINAS DINÁMICAMENTE -->
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- FOOTER GLOBAL -->
+<footer class="bg-dark text-white py-5 mt-5">
+  <div class="container text-center">
+    <h3 style="font-family: serif;">NOTICIAS</h3>
+    <p class="text-secondary mt-3">© 2026 Plataforma Editorial. Todos los derechos reservados.</p>
+  </div>
+</footer>
